@@ -28,9 +28,16 @@ if [ $? -eq 0 ]; then
 else
   echo ""
   echo "Responder not installed, Installing"
-  apt-get install responder
+#  apt-get install responder
+# Install dependencies
+  sudo apt-get update
+  sudo apt-get install -y git python python-pip python-dev screen sqlite3
+  # Clone and install Responder from GitHub
+  git clone https://github.com/lgandx/Responder.git
+  cd Responder
+  sudo python setup.py install
+  cd ..
 fi
-
 
 command -v nmap >/dev/null 2>&1
 if [ $? -eq 0 ]; then
