@@ -35,7 +35,8 @@ else
   # Clone and install Responder from GitHub
   git clone https://github.com/lgandx/Responder.git
   cd Responder
-  sudo python setup.py install
+  sudo pip3 install -r requirements.txt
+  sudo cp Responder.py /usr/local/bin/responder
   cd ..
 fi
 
